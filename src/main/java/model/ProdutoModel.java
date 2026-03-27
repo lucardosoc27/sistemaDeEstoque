@@ -46,4 +46,44 @@ public class ProdutoModel {
     public void setFabricante (String fabricante) {
         this.fabricante = fabricante;
     }
+    
+    public String getMarca () {
+        return this.marca;
+    }
+    
+    public void setMarca (String Marca) {
+        this.marca = marca;
+    }
+    
+    public String getDataFabricaçao () {
+        return this.dataFabricacao;
+    }
+    
+    public void setDataFabricaçao (String dataFabricacao) {
+        this.dataFabricacao = dataFabricacao;
+    }
+    
+    public long getQuantidade () {
+        return this.quantidade;
+    }
+    
+    public void setQuantidade (long quantidade) {
+        this.quantidade = quantidade;
+    }
+    
+    public String getValor () {
+        return this.valor;
+    }
+    
+    public void setValor (String valor) {
+        this.valor = valor;
+    }
+    
+    public String getTotal () {
+        return this.total;
+    }
+    
+    public void setTotal (String total) {
+        this.total = total;
+    }
 }

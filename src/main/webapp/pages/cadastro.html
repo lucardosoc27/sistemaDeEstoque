@@ -51,7 +51,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                     </div>
                     <div class="containerEndereco"> 
                         <label for="cep">CEP</label>
-                        <input type="text" name="cep" id="cep" />
+                        <input type="text" name="cep" id="cep" onblur="preencherCampo()"/>
                         <label for="endereco">Endereço</label>
                         <input type="text" name="endereco" id="endereco" />
                         <label for="cidade">Cidade</label>
@@ -59,6 +59,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                         <label for="bairro">Bairro</label>
                         <input type="text" name="bairro" id="bairro" />
                         <label for="estado">Estado</label>
+           
                         <input type="text" name="estado" id="estado" />
                         <label for="numero">Número</label>
                         <input type="text" name="numero" id="numero" />
@@ -71,5 +72,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit thi
                 </div>
             </form>
         </main>
+        <script src="../js/cep.js"></script>
     </body>
 </html>
