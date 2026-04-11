@@ -1,7 +1,7 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+ */ 
 package connection;
 
 import java.sql.Connection;
@@ -16,9 +16,9 @@ public class ConnectionFactory {
     // Criar a conexão, preciso de Dados da conexão
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private static final String URL =
-            "jdbc:mysql://localhost:3307/kids_store?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
+            "jdbc:mysql://db:3306/kids_store?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
     private static final String USER = "root";
-    private static final String PASSWORD = "cimatec";
+    private static final String PASSWORD = "1234";
     
     // Métodos
     public static Connection getConnection() {

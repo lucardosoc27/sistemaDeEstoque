@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import model.UserModel;
 
-@WebServlet("/api/login")
+@WebServlet("/login")
 public class LoginServlet extends HttpServlet {
     
     protected void doPost (
@@ -37,7 +37,7 @@ public class LoginServlet extends HttpServlet {
             
             session.setAttribute("usuario", usuario);
             
-            response.sendRedirect(request.getContextPath() + "/pages/dashboard.html");
+            response.sendRedirect(request.getContextPath() + "/pages/projeto.html");
         } else { 
             response.sendRedirect(request.getContextPath() + "/index.html");
         }
