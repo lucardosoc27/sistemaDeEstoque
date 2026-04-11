@@ -13,14 +13,11 @@ import java.sql.DriverManager;
  * @author 232.004390
  */
 public class ConnectionFactory {
-    // Criar a conexão, preciso de Dados da conexão
+    private static final String URL = System.getenv("DB_URL");
+    private static final String USER = System.getenv("DB_USER");
+    private static final String PASSWORD = System.getenv("DB_PASS");
     private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL =
-            "jdbc:mysql://db:3306/kids_store?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-    private static final String USER = "root";
-    private static final String PASSWORD = "1234";
     
-    // Métodos
     public static Connection getConnection() {
         Connection con = null;
         
