@@ -7,7 +7,10 @@ package dao;
 import connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import model.CadastroProdutoModel;
 
 /**
@@ -41,6 +44,37 @@ public class CadastroProdutosDAO {
             e.printStackTrace();
             return false;
       }
+    }
+    public List<CadastroProdutoModel> listar(){
+        List<CadastroProdutoModel> lista = new ArrayList<>();
+        
+        String sql = "SELECT * FROM produtos";
+        
+        try (Connection conn = ConnectionFactory.getConnection();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery()){
+            
+            
+            while(rs.next()) {
+                CadastroProdutoModel p = new CadastroProdutoModel();
+                
+                p.setCodigoBarras(rs.getString("codigoBarras"));
+                p.setNomeProduto(rs.getString("nomeProduto"));
+                p.setFabricante(rs.getString("fabricante"));
+                p.setMarca(rs.getString("marca"));
+                p.setFabricante(rs.getString("fabricante"));
+                p.setMarca(rs.getString("marca"));
+                p.setQuantidade(rs.getLong("quantidade"));
+                p.setTotal(rs.getString("valor"));
+                p.setStatus(rs.getString("status"));
+                
+                lista.add(p);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        
+        return lista;
     }
 }
     
