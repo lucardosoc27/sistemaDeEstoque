@@ -7,6 +7,7 @@ package dao;
 import connection.ConnectionFactory;
 import java.sql.PreparedStatement;
 import model.CadastroUsuarioModel;
+import util.SenhaUtil;
 
 /**
  *
@@ -24,9 +25,10 @@ public class CadastroUsersDAO {
             
             PreparedStatement stmt = con.prepareStatement(sql);
         
-        // A ORDEM AGORA BATE EXATAMENTE COM A LISTA LÁ EM CIMA:
+            String senhaHash = SenhaUtil.gerarHash(user.getSenha());
+       
         stmt.setString(1, user.getNomeUsuario()); // 1. username
-        stmt.setString(2, user.getSenha());       // 2. psw
+        stmt.setString(2, senhaHash);       // 2. psw
         stmt.setString(3, user.getNome());        // 3. nameFirst
         stmt.setString(4, user.getSobrenome());   // 4. sobrenome
         stmt.setString(5, user.getDtaNascimento());// 5. dtaNascimento
