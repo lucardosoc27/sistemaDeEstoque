@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package controller;
 
 import dao.CadastroUsersDAO;
@@ -12,6 +8,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import model.CadastroUsuarioModel;
+import util.SenhaUtil;
 
 /**
  *
@@ -40,8 +37,14 @@ public class CadastroController extends HttpServlet {
         user.setCidade(request.getParameter("cidade"));
         user.setNumero(Long.parseLong(request.getParameter("numero")));
         user.setComplemento(request.getParameter("complemento")); 
-        user.setNomeusuario(request.getParameter("nomeUsuario"));
-        user.setSenha(request.getParameter("senha"));
+        
+        
+        user.setNomeusuario(request.getParameter("usuario"));
+        
+        String senhaDigitada = request.getParameter("password");
+        String senhaCriptografada = SenhaUtil.gerarHash(senhaDigitada);
+        user.setSenha(senhaCriptografada);
+        
         user.setFuncao(request.getParameter("funcao"));
         
         CadastroUsersDAO dao = new CadastroUsersDAO();
