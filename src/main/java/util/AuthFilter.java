@@ -26,7 +26,8 @@ public class AuthFilter implements Filter {
       String uri = req.getRequestURI();
       
       if (uri.contains("index.html") || uri.contains("login")
-          || uri.contains("css") || uri.contains("js")) {
+          || uri.contains("css") || uri.contains("js") 
+          || uri.contains("cadastro")) {
           chain.doFilter(request, response);
           
           return;

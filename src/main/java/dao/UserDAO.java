@@ -29,6 +29,7 @@ public class UserDAO {
             ResultSet rs = stmt.executeQuery();
             
             if (rs.next()) {
+                System.out.println(" Usuario encontrado no banco");
                 String hashBanco = rs.getString("psw");
                 
                 boolean senhaValida = SenhaUtil.verificarSenha(
@@ -37,13 +38,18 @@ public class UserDAO {
                 );
                 
                 if (senhaValida) {
+                    System.out.println("Senha correta");
                     UserModel user = new UserModel();
                     user.setUsername(rs.getString("username"));
                     user.setPassword(hashBanco);
                     user.setFuncao(rs.getString("funcao"));
                     
                     return user;
+                } else {
+                    System.out.println("Senha digitada errada: " + userModel.getPassword() + " | Banco: " + hashBanco);
                 }
+            } else {
+                System.out.println(" Usuario nao encontrado com o nome: " + userModel.getUsername());
             }
             
             return null;
