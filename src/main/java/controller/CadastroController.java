@@ -41,9 +41,7 @@ public class CadastroController extends HttpServlet {
         
         user.setNomeusuario(request.getParameter("usuario"));
         
-        String senhaDigitada = request.getParameter("password");
-        String senhaCriptografada = SenhaUtil.gerarHash(senhaDigitada);
-        user.setSenha(senhaCriptografada);
+        user.setSenha(request.getParameter("password"));
         
         user.setFuncao(request.getParameter("funcao"));
         
